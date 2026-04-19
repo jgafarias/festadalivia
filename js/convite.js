@@ -58,10 +58,18 @@
         /* TELA 1 → TELA 2: Clique na imagem inicial */
         if (screenInicio) {
             screenInicio.addEventListener('click', () => {
-                showScreen(screenVideo);
                 if (video) {
                     video.currentTime = 0;
-                    video.play();
+                    // Só exibe a tela do vídeo quando o primeiro frame estiver pronto e rodando
+                    video.addEventListener('playing', () => {
+                        showScreen(screenVideo);
+                    }, { once: true });
+                    video.play().catch(e => {
+                        // Fallback caso autoplay falhe
+                        showScreen(screenVideo);
+                    });
+                } else {
+                    showScreen(screenVideo);
                 }
             });
         }
