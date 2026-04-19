@@ -72,7 +72,7 @@ if (modal) {
 
             // ── Salva na planilha (aba "Pagina Doacao") ──
             const params = new URLSearchParams();
-            params.append('sheet', 'Pagina Doacao'); // indica qual aba gravar
+            params.append('sheet', 'Doacao'); // indica qual aba gravar
             params.append('nome', nome);
             params.append('valor', valorFinal);
             params.append('mensagem', mensagem);
@@ -83,17 +83,14 @@ if (modal) {
                 body: params.toString(),
                 mode: 'no-cors'
             }).finally(() => {
-                // Independente do retorno (no-cors não deixa ler), gera o QR
-                const valorNumerico = currentValue === 'outro'
-                    ? (formData.get('valorCustom') || '0')
-                    : currentValue;
-
-                const qrData = `00020126360014BR.GOV.BCB.PIX0114+5511999999999520400005303986540${String(valorNumerico).replace(',', '.')}`;
-                const qrUrl  = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}`;
+                let qrImgPath = 'img/QR/QR.jpeg'; // Para 'outro'
+                if (currentValue === '50') qrImgPath = 'img/QR/QR50.jpeg';
+                else if (currentValue === '100') qrImgPath = 'img/QR/QR100.jpeg';
+                else if (currentValue === '200') qrImgPath = 'img/QR/QR200.jpeg';
 
                 const qrContainer = modal.querySelector('.qr-placeholder');
                 if (qrContainer) {
-                    qrContainer.innerHTML = `<img src="${qrUrl}" alt="QR Code Pix" style="border-radius: 8px;">`;
+                    qrContainer.innerHTML = `<img src="${qrImgPath}" alt="QR Code Pix" style="border-radius: 8px; width: 100%; max-width: 220px; object-fit: contain;">`;
                     qrContainer.style.background = 'white';
                 }
 
