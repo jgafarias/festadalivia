@@ -48,7 +48,7 @@
             }
         }
 
-        /* ── Telas: sempre no layout, transição sobreposta ── */
+        /* ── Telas: sempre no layout, cortes secos ── */
         .screen {
             position: fixed;
             inset: 0;
@@ -58,16 +58,14 @@
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            /* Quando PERDE a classe active, tira z-index na hora, mas segura a opacidade por 0.5s */
-            transition: opacity 0s 0.5s;
+            /* Sem transição para corte invisível */
         }
 
         .screen.active {
             opacity: 1;
             pointer-events: all;
             z-index: 2; /* Fica por cima */
-            /* Quando GANHA a classe active, faz fade-in suave */
-            transition: opacity 0.5s ease;
+            /* Sem transição para corte invisível */
         }
 
         .screen img,
