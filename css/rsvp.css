@@ -1,0 +1,127 @@
+/**
+ * RSVP Styles & Animations
+ */
+
+/* ─── Área do Botão Principal ─── */
+.rsvp-area {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(31, 95, 134, 0.05) 0%, rgba(42, 123, 168, 0.05) 100%);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* ─── Botão Principal com Animação Pulse ─── */
+@keyframes pulse-ring {
+    0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(31, 95, 134, 0.5); }
+    70%  { transform: scale(1);    box-shadow: 0 0 0 14px rgba(31, 95, 134, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0   rgba(31, 95, 134, 0); }
+}
+
+.btn-primary {
+    border: none;
+    background: linear-gradient(135deg, #1f5f86 0%, #2a7ba8 100%);
+    color: white;
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    box-shadow: 0 10px 30px rgba(31, 95, 134, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse-ring 2.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.btn-primary:hover {
+    animation: none;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(31, 95, 134, 0.4);
+}
+
+.rsvp-area p {
+    margin-top: 0;
+    color: #5a8aa6;
+    font-size: 0.95rem;
+}
+
+.rsvp-area a {
+    color: #1f5f86;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(31, 95, 134, 0.2);
+    transition: all 0.3s;
+}
+
+.rsvp-area a:hover {
+    border-color: #1f5f86;
+    color: #0f6a9d;
+}
+
+/* ─── Tela de Sucesso (Animação de Check) ─── */
+.rsvp-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rsvp-success h3 {
+    font-size: 1.8rem;
+    color: #1f5f86;
+    margin: 0;
+}
+
+.rsvp-success p {
+    color: #596a7d;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* SVG animado do Checkmark */
+.check-circle {
+    width: 90px;
+    height: 90px;
+}
+
+.check-circle .circle {
+    stroke: #2a7ba8;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: none;
+    animation: draw-circle 0.7s cubic-bezier(0.65, 0, 0.45, 1) 0.1s forwards;
+}
+
+.check-circle .check {
+    stroke: #1f5f86;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    animation: draw-check 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.75s forwards;
+}
+
+@keyframes draw-circle {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-check {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rsvp.css">
+    <title>Festa da Livia</title>
+</head>
+
+<body>
+    <div id="loading">
+        <div class="iniciais">
+            <span class="l">L</span>
+            <span class="r">R</span>
+        </div>
+    </div>
+    <div class="page">
+        <header class="site-header">
+            <div class="header-row">
+                <div class="brand">
+                    <div class="site-logo">
+                        <span class="l">L</span>
+                        <span class="r">R</span>
+                    </div>
+                    <div class="brand-info">
+                        <span class="brand-title">15 anos</span>
+                        <span class="brand-subtitle">Convite da Livia</span>
+                    </div>
+                </div>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="site-nav" id="siteNav">
+                <a href="#inicio" class="is-active">Inicio</a>
+                <a href="#biografia">Momentos</a> <!-- Added Momentos Link -->
+                <a href="#evento">Evento</a>
+                <a href="#presentes">Presentes</a>
+            </nav>
+        </header>
+        <main class="content">
+            <!-- HOME SECTION (Professional Arch + Vertical Line) -->
+            <section class="section home is-active" id="inicio">
+                <div class="home-photo" aria-hidden="true">
+                    <div class="photo-placeholder"></div>
+                </div>
+                <div class="home-text">
+                    <span class="overline">15 Anos</span>
+                    <h1>Lívia</h1>
+                    <p>
+                        Queridos amigos e familiares,
+                    </p>
+                    <p>
+                        Que alegria poder compartilhar com vocês essa data tão importante e especial na minha vida.
+                        Será uma noite memorável, onde cada detalhe ficará guardado pra sempre em meu coração.
+                    </p>
+                    <p>
+                        A presença de vocês é essencial para que a noite se torne única.
+                        Aqui compartilho todas as informações importantes, é só navegar no site.
+                    </p>
+                    <p class="signature">Nos vemos em breve!</p>
+                </div>
+            </section>
+
+            <!-- BIO/MOMENTOS SECTION (Carousel) -->
+            <section class="section bio" id="biografia">
+                <!-- Carousel Container -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-overlay"></div>
+                    <!-- <div class="section-header">
+                        <h2>Momentos</h2>
+                    </div> -->
+                    <div class="carousel-track">
+                        <!-- Para adicionar mais fotos, basta copiar e colar a linha abaixo, trocando o caminho da imagem -->
+                        <div class="carousel-slide active" style="background-image: url('img/1.jpg');"></div>
+                        <div class="carousel-slide" style="background-image: url('img/2.jpg');"></div>
+                        <div class="carousel-slide" style="background-image: url('img/3.jpg');"></div>
+                        <div class="carousel-slide" style="background-image: url('img/4.jpg');"></div>
+                        <div class="carousel-slide" style="background-image: url('img/5.jpg');"></div>
+                        <div class="carousel-slide" style="background-image: url('img/6.jpg');"></div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" aria-label="Anterior">←</button>
+                        <div class="carousel-indicators">
+                        </div>
+                        <button class="carousel-btn next" aria-label="Próximo">→</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVENT SECTION (Professional Cards) -->
+            <section class="section event" id="evento">
+                <div class="section-header">
+                    <h2>O Grande Dia</h2>
+                    <p>Detalhes para você se programar.</p>
+                </div>
+                <div class="event-grid details-card-row">
+                    <div class="detail-card">
+                        <div class="icon-circle">📅</div>
+                        <h3>Data</h3>
+                        <p>19/06/2026</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-circle">⏰</div>
+                        <h3>Horário</h3>
+                        <p>20h30</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="icon-circle">📍</div>
+                        <h3>Local</h3>
+                        <p>Endereço do Evento</p>
+                        <a href="#" class="btn-text">VER MAPA</a>
+                    </div>
+                </div>
+                <div class="rsvp-area">
+                    <button id="openRSVP" class="btn-primary">Confirmar Presença</button>
+                    <p>Precisa de ajuda? <a href="#">Me chame no WhatsApp</a></p>
+                </div>
+            </section>
+
+            <!-- GIFTS SECTION (Side-by-Side Layout) -->
+            <section class="section gifts" id="presentes">
+                <div class="gifts-container">
+                    <div class="gifts-info">
+                        <h2>Presentes</h2>
+                        <div class="gifts-message">
+                            <p>
+                                Gastei o dinheiro do meu intercâmbio na festa. Mas prometi aos meus pais que vocês me
+                                ajudariam a realizá-lo mesmo assim.
+                            </p>
+                            <p>
+                                Como sugestão de presente, seguem cotas onde vocês podem me ajudar a realizar mais esse
+                                sonho.
+                            </p>
+                            <p class="highlight-text">
+                                Logo menos vão me ver estudando pelo mundo. Obrigada!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="gift-grid">
+                        <button class="gift-option" data-value="50">
+                            <span class="gift-badge">✈️ Viagem</span>
+                            <span class="gift-amount">R$ 50</span>
+                            <span class="gift-desc">Ajude na passagem</span>
+                            <span class="gift-action">CONTRIBUIR</span>
+                        </button>
+                        <button class="gift-option featured" data-value="100">
+                            <span class="gift-badge">📚 Estudos</span>
+                            <span class="gift-amount">R$ 100</span>
+                            <span class="gift-desc">Ajude nos livros</span>
+                            <span class="gift-action">CONTRIBUIR</span>
+                        </button>
+                        <button class="gift-option" data-value="200">
+                            <span class="gift-badge">🌍 Sonho</span>
+                            <span class="gift-amount">R$ 200</span>
+                            <span class="gift-desc">Ajude no sonho</span>
+                            <span class="gift-action">CONTRIBUIR</span>
+                        </button>
+                        <button class="gift-option">
+                            <!-- <span class="gift-badge">Outro valor</span> -->
+                            <span class="gift-amount">Outro Valor</span>
+                            <span class="gift-desc"> </span>
+                            <span class="gift-action">CONTRIBUIR</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="modal" id="giftModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="giftTitle">
+            <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+            <div class="modal-step modal-form is-active">
+                <h3 id="giftTitle">Confirmar Presente</h3>
+                <p class="modal-value">Valor: <strong id="giftValue">R$ 50</strong></p>
+                <form id="giftForm" class="gift-form">
+                    <label>
+                        Nome Completo
+                        <input type="text" name="nome" required>
+                    </label>
+                    <label>
+                        WhatsApp
+                        <input type="tel" name="telefone" required>
+                    </label>
+                    <label>
+                        Mensagem para Livia
+                        <textarea name="mensagem" rows="3"></textarea>
+                    </label>
+                    <button type="submit">Gerar Pix</button>
+                </form>
+            </div>
+            <div class="modal-step modal-qr">
+                <h3>Obrigada!</h3>
+                <p>Use o QR Code abaixo para finalizar o Pix.</p>
+                <div class="qr-placeholder">QR Code aqui</div>
+                <p class="thanks-text">Muito obrigada pelo carinho.</p>
+            </div>
+        </div>
+    </div>
+    <!-- RSVP MODAL -->
+    <div class="modal" id="rsvpModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle">
+            <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+            <div class="modal-step is-active">
+                <h3 id="rsvpTitle">Confirmar Presença</h3>
+                <p>Por favor, preencha os dados abaixo para confirmar seu lugar na festa.</p>
+                <form id="rsvpForm" class="gift-form">
+                    <label>
+                        Nome Completo
+                        <input type="text" name="nome" placeholder="Seu nome aqui" required>
+                    </label>
+                    <label>
+                        Quantas pessoas vão com você?
+                        <input type="number" name="convidados" min="0" value="0" required>
+                    </label>
+                    <button type="submit">Confirmar Presença</button>
+                </form>
+            </div>
+            <!-- Tela de Sucesso (aparece após confirmar) -->
+            <div id="rsvpSuccess" class="rsvp-success" style="display:none;">
+                <svg class="check-circle" viewBox="0 0 52 52">
+                    <circle class="circle" cx="26" cy="26" r="25" />
+                    <path class="check" d="M14 27 l8 8 l16 -16" />
+                </svg>
+                <h3>Presença Confirmada!</h3>
+                <p>Ficamos felizes em saber que você estará<br>na festa da Livia. Até lá! 🎉</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/rsvp.js"></script>
+</body>
+
+</html>
