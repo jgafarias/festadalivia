@@ -2,20 +2,39 @@
 const giftCards = document.querySelectorAll('.gift-option');
 const modal = document.getElementById('giftModal');
 
+// Mesma URL do Apps Script do RSVP — os dados vão para a aba "Pagina Doacao"
+const DONATION_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyPfo0CPRP6_hySe7tGfPA3OqAslmOyLr8ePqdpicsI7P1qcUNwXeBSyuJCvarvhKi3/exec';
+
 if (modal) {
-    const giftValue = document.getElementById('giftValue');
-    const form = document.getElementById('giftForm');
-    const formStep = modal.querySelector('.modal-form');
-    const qrStep = modal.querySelector('.modal-qr');
-    const closeTargets = modal.querySelectorAll('[data-close]');
+    const giftValue      = document.getElementById('giftValue');
+    const form           = document.getElementById('giftForm');
+    const formStep       = modal.querySelector('.modal-form');
+    const qrStep         = modal.querySelector('.modal-qr');
+    const closeTargets   = modal.querySelectorAll('[data-close]');
+    const customValueLabel = document.getElementById('customValueLabel');
+    const customValueInput = customValueLabel ? customValueLabel.querySelector('input') : null;
+
+    let currentValue = '50'; // valor selecionado pelo card
 
     const openModal = (value) => {
-        if (giftValue) giftValue.textContent = `R$ ${value}`;
+        currentValue = value;
+        const isCustom = value === 'outro';
+
+        // Mostra/oculta campo de valor personalizado
+        if (customValueLabel) {
+            customValueLabel.style.display = isCustom ? '' : 'none';
+            if (customValueInput) customValueInput.required = isCustom;
+        }
+
+        if (giftValue) {
+            giftValue.textContent = isCustom ? 'Valor personalizado' : `R$ ${value}`;
+        }
+
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         if (formStep) formStep.classList.add('is-active');
-        if (qrStep) qrStep.classList.remove('is-active');
-        if (form) form.reset();
+        if (qrStep)   qrStep.classList.remove('is-active');
+        if (form)     form.reset();
     };
 
     const closeModal = () => {
@@ -25,7 +44,7 @@ if (modal) {
 
     giftCards.forEach((card) => {
         card.addEventListener('click', () => {
-            openModal(card.dataset.value);
+            openModal(card.dataset.value || 'outro');
         });
     });
 
@@ -39,18 +58,38 @@ if (modal) {
 
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
-
-            // Loading State
-            submitBtn.textContent = 'Gerando Pix...';
+            submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
 
-            const valorText = String(giftValue?.textContent ?? '');
-            const valorClean = valorText.replace(/[^\d,]/g, '');
+            const formData = new FormData(form);
+            const nome     = formData.get('nome');
+            const mensagem = formData.get('mensagem') || '';
 
-            // Simulate API delay
-            setTimeout(() => {
-                const qrData = `00020126360014BR.GOV.BCB.PIX0114+5511999999999520400005303986540${valorClean.replace(',', '.')}`;
-                const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}`;
+            // Determina o valor final (fixo ou personalizado)
+            const valorFinal = currentValue === 'outro'
+                ? `R$ ${formData.get('valorCustom') || '?'}`
+                : `R$ ${currentValue}`;
+
+            // ── Salva na planilha (aba "Pagina Doacao") ──
+            const params = new URLSearchParams();
+            params.append('sheet', 'Pagina Doacao'); // indica qual aba gravar
+            params.append('nome', nome);
+            params.append('valor', valorFinal);
+            params.append('mensagem', mensagem);
+
+            fetch(DONATION_SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString(),
+                mode: 'no-cors'
+            }).finally(() => {
+                // Independente do retorno (no-cors não deixa ler), gera o QR
+                const valorNumerico = currentValue === 'outro'
+                    ? (formData.get('valorCustom') || '0')
+                    : currentValue;
+
+                const qrData = `00020126360014BR.GOV.BCB.PIX0114+5511999999999520400005303986540${String(valorNumerico).replace(',', '.')}`;
+                const qrUrl  = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(qrData)}`;
 
                 const qrContainer = modal.querySelector('.qr-placeholder');
                 if (qrContainer) {
@@ -58,25 +97,20 @@ if (modal) {
                     qrContainer.style.background = 'white';
                 }
 
-                formStep.classList.remove('is-active');
-                qrStep.classList.add('is-active');
+                if (formStep) formStep.classList.remove('is-active');
+                if (qrStep)   qrStep.classList.add('is-active');
 
                 submitBtn.textContent = originalBtnText;
                 submitBtn.disabled = false;
-            }, 1500);
+            });
         });
     }
 
     window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
+        if (event.key === 'Escape') closeModal();
     });
 
-    // Handle background click for closing
     modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
+        if (event.target === modal) closeModal();
     });
 }

@@ -101,7 +101,7 @@
             <section class="section event" id="evento">
                 <div class="section-header">
                     <h2>O Grande Dia</h2>
-                    <p>Detalhes para você se programar.</p>
+                    <p><br>Detalhes para você se programar.</p>
                 </div>
                 <div class="event-grid details-card-row">
                     <div class="detail-card">
@@ -117,7 +117,8 @@
                     <div class="detail-card">
                         <div class="icon-circle">📍</div>
                         <h3>Local</h3>
-                        <p>Alameda Araguaia, 540 - Santa Maria, São Caetano do Sul - SP, 09560-580</p>
+                        <p style="font-size: 12px;">Alameda Araguaia, 540 - Santa Maria, São Caetano do Sul - SP,
+                            09560-580</p>
                         <a href="https://maps.app.goo.gl/WbpALjQxz7UUGR426" class="btn-text">VER MAPA</a>
                     </div>
                 </div>
@@ -165,8 +166,7 @@
                             <span class="gift-desc">Ajude no sonho</span>
                             <span class="gift-action">CONTRIBUIR</span>
                         </button>
-                        <button class="gift-option">
-                            <!-- <span class="gift-badge">Outro valor</span> -->
+                        <button class="gift-option" data-value="outro">
                             <span class="gift-amount">Outro Valor</span>
                             <span class="gift-desc"> </span>
                             <span class="gift-action">CONTRIBUIR</span>
@@ -186,15 +186,15 @@
                 <form id="giftForm" class="gift-form">
                     <label>
                         Nome Completo
-                        <input type="text" name="nome" required>
+                        <input type="text" name="nome" placeholder="Seu nome aqui" required>
+                    </label>
+                    <label id="customValueLabel" style="display:none;">
+                        Valor que deseja doar (R$)
+                        <input type="number" name="valorCustom" min="1" placeholder="Ex: 75">
                     </label>
                     <label>
-                        WhatsApp
-                        <input type="tel" name="telefone" required>
-                    </label>
-                    <label>
-                        Mensagem para Livia
-                        <textarea name="mensagem" rows="3"></textarea>
+                        Mensagem para a Livia
+                        <textarea name="mensagem" rows="3" placeholder="Deixe um carinho..."></textarea>
                     </label>
                     <button type="submit">Gerar Pix</button>
                 </form>

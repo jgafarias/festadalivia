@@ -80,6 +80,17 @@
             object-fit: contain;
         }
 
+        /* ── Mobile: ocupa toda a tela ── */
+        @media (max-width: 768px) {
+
+            .screen img,
+            .screen video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+            }
+        }
+
         #screenInicio {
             cursor: pointer;
         }
@@ -105,10 +116,6 @@
         <img src="convite/convite inicio.jpg" alt="Convite 15 Anos Lívia">
     </div>
 
-    <!-- TELA 1.5: Imagem antes do vídeo -->
-    <div class="screen" id="screenInicioVideo">
-        <img src="convite/Inicio video.jpg" alt="Abertura do Vídeo">
-    </div>
 
     <!-- TELA 2: Vídeo -->
     <div class="screen" id="screenVideo">
@@ -172,26 +179,20 @@
 
         window.addEventListener('resize', positionOverlay);
 
-        const screenInicioVideo = document.getElementById('screenInicioVideo');
-
         /* ── Troca de tela ── */
         function showScreen(el) {
-            [screenInicio, screenInicioVideo, screenVideo, screenFinal].forEach(s => {
+            [screenInicio, screenVideo, screenFinal].forEach(s => {
                 s.classList.remove('active', 'fade-in');
             });
             void el.offsetWidth;
             el.classList.add('active', 'fade-in');
         }
 
-        /* TELA 1 → TELA 1.5: Clique na imagem inicial */
+        /* TELA 1 → TELA 2: Clique na imagem inicial */
         screenInicio.addEventListener('click', () => {
-            showScreen(screenInicioVideo);
-            // Inicia o vídeo automaticamente após 1 segundo
-            setTimeout(() => {
-                showScreen(screenVideo);
-                video.currentTime = 0;
-                video.play();
-            }, 1000);
+            showScreen(screenVideo);
+            video.currentTime = 0;
+            video.play();
         });
 
         /* TELA 2 → TELA 3: Vídeo terminou */
