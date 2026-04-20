@@ -56,6 +56,8 @@ body {
     text-align: center;
     letter-spacing: -30px;
     animation: pulse 2s ease infinite;
+    margin-top: -30px; /* Compensa os 50px de drop do R para centralizar o bloco todo */
+    margin-left: -15px; /* Compensa o gap das letras para o centro real */
 }
 
 .iniciais .l {
