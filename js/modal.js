@@ -98,6 +98,10 @@ if (modal) {
                     qrImgPath = 'img/QR/QR200.jpeg';
                     pixCode = '00020101021126490014br.gov.bcb.pix0127liviarufinoassis@icloud.com5204000053039865406200.005802BR5913LIVIA R ASSIS6007DIADEMA62070503***6304B12E';
                 }
+                else if (currentValue === 'outro') {
+                    qrImgPath = 'img/QR/QR.jpeg';
+                    pixCode = '00020101021126490014br.gov.bcb.pix0127liviarufinoassis@icloud.com5204000053039865802BR5918LIVIA RUFINO ASSIS6007DIADEMA62070503***63047998';
+                }
 
                 const qrContainer = modal.querySelector('.qr-placeholder');
                 if (qrContainer) {
