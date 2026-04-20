@@ -44,6 +44,7 @@
                 <a href="#inicio" class="is-active">Inicio</a>
                 <a href="#biografia">Momentos</a> <!-- Added Momentos Link -->
                 <a href="#evento">Evento</a>
+                <a href="#manual">Manual do Convidado</a>
                 <a href="#presentes">Presentes</a>
             </nav>
         </header>
@@ -124,7 +125,50 @@
                 </div>
                 <div class="rsvp-area">
                     <button id="openRSVP" class="btn-primary">Confirmar Presença</button>
-                    <p>Precisa de ajuda? <a href="#">Me chame no WhatsApp</a></p>
+                    <p>Precisa de ajuda? <a target="_blank"
+                            href="https://wa.me/5511984504493?text=Ol%C3%A1,%20preciso%20de%20ajuda%20sobre%20a%20festa%20da%20L%C3%ADvia!">Me
+                            chame no WhatsApp</a></p>
+                </div>
+            </section>
+
+            <!-- MANUAL DO CONVIDADO (Dress Code) -->
+            <section class="section manual" id="manual">
+                <div class="manual-layout">
+                    <div class="manual-half left">
+                        <span class="overline">Dress Code</span>
+                        <h2>Homens</h2>
+                        <p class="dress-code">Esporte Fino</p>
+                        <p>
+                            Sugerimos calça de sarja ou alfaiataria, camisa social. Uma combinação elegante e
+                            confortável.
+                        </p>
+                    </div>
+                    <!-- Right half implicitly acts as the separator because of its CSS formatting -->
+                    <div class="manual-half right">
+                        <span class="overline">Dress Code</span>
+                        <h2>Mulheres</h2>
+                        <p class="dress-code">Esporte Fino</p>
+                        <p>
+                            Sugerimos vestidos longuetes, midi ou na altura do joelho, macacões sofisticados ou
+                            conjuntos elegantes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="manual-important-info forbidden-colors"
+                    style="text-align: center; width: fit-content; max-width: 90vw; margin: 0 auto;">
+                    <p>
+                        <strong>Atenção:</strong> Por favor evitem as cores rosa e azul devido ser de uso exclusivo da
+                        debutante.
+                    </p>
+                </div>
+
+                <div class="manual-important-info forbidden-colors">
+                    <p>
+                        📅 <strong>Confirme a sua presença até o dia 05 de junho</strong><br><br>
+                    <p style="text-align: center;">Apenas presenças confirmadas estarão incluídas na lista de convidados
+                    </p>
+                    </p>
                 </div>
             </section>
 
@@ -203,7 +247,11 @@
                 <h3>Obrigada!</h3>
                 <p>Use o QR Code abaixo para finalizar o Pix.</p>
                 <div class="qr-placeholder">QR Code aqui</div>
-                <p class="thanks-text">Muito obrigada pelo carinho.</p>
+                <button type="button" id="copyPixBtn" class="copy-btn" style="display: none;">Copiar Código Pix</button>
+                <p class="verification-note" style="margin-top: 1.5rem; font-size: 0.9rem; color: #596a7d; background: #eef2f5; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(89, 106, 125, 0.1);">
+                    <strong>Aviso:</strong> Não há verificação automática de pagamento no site. Após finalizar o Pix no seu banco, o processo está concluído e você já pode fechar esta tela.
+                </p>
+                <p class="thanks-text" style="margin-top: 1.5rem;">Muito obrigada pelo carinho.</p>
             </div>
         </div>
     </div>

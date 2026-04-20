@@ -84,14 +84,41 @@ if (modal) {
                 mode: 'no-cors'
             }).finally(() => {
                 let qrImgPath = 'img/QR/QR.jpeg'; // Para 'outro'
-                if (currentValue === '50') qrImgPath = 'img/QR/QR50.jpeg';
-                else if (currentValue === '100') qrImgPath = 'img/QR/QR100.jpeg';
-                else if (currentValue === '200') qrImgPath = 'img/QR/QR200.jpeg';
+                let pixCode = '';
+                
+                if (currentValue === '50') {
+                    qrImgPath = 'img/QR/QR50.jpeg';
+                    pixCode = '00020101021126490014br.gov.bcb.pix0127liviarufinoassis@icloud.com520400005303986540550.005802BR5913LIVIA R ASSIS6007DIADEMA62070503***630465EF';
+                }
+                else if (currentValue === '100') {
+                    qrImgPath = 'img/QR/QR100.jpeg';
+                    pixCode = '00020101021126490014br.gov.bcb.pix0127liviarufinoassis@icloud.com5204000053039865406100.005802BR5913LIVIA R ASSIS6007DIADEMA62070503***6304DE71';
+                }
+                else if (currentValue === '200') {
+                    qrImgPath = 'img/QR/QR200.jpeg';
+                    pixCode = '00020101021126490014br.gov.bcb.pix0127liviarufinoassis@icloud.com5204000053039865406200.005802BR5913LIVIA R ASSIS6007DIADEMA62070503***6304B12E';
+                }
 
                 const qrContainer = modal.querySelector('.qr-placeholder');
                 if (qrContainer) {
                     qrContainer.innerHTML = `<img src="${qrImgPath}" alt="QR Code Pix" style="border-radius: 8px; width: 100%; max-width: 220px; object-fit: contain;">`;
                     qrContainer.style.background = 'white';
+                }
+
+                const copyBtn = modal.querySelector('#copyPixBtn');
+                if (copyBtn) {
+                    if (pixCode) {
+                        copyBtn.style.display = 'block';
+                        copyBtn.onclick = () => {
+                            navigator.clipboard.writeText(pixCode).then(() => {
+                                const originalText = 'Copiar Código Pix';
+                                copyBtn.textContent = 'Código Copiado! ✔️';
+                                setTimeout(() => copyBtn.textContent = originalText, 2500);
+                            });
+                        };
+                    } else {
+                        copyBtn.style.display = 'none';
+                    }
                 }
 
                 if (formStep) formStep.classList.remove('is-active');

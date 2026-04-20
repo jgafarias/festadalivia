@@ -183,6 +183,7 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: sans-serif;
     position: relative;
+    white-space: nowrap;
 }
 
 .site-nav a::after {
@@ -389,6 +390,119 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-top: 1.5rem;
+}
+
+/* ========================================
+   7.5 MANUAL DO CONVIDADO
+   ======================================== */
+
+.section.manual.is-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 4rem;
+}
+
+.manual-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.manual-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.manual-half.left {
+    text-align: center;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.manual-half.right {
+    border-left: 3px solid transparent;
+    border-image: linear-gradient(180deg, #d4af6a 0%, #c5a059 100%) 1;
+    padding-left: 2rem;
+    text-align: center;
+    align-items: center;
+}
+
+.manual-half .overline {
+    font-family: 'Lato', sans-serif;
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    background: linear-gradient(90deg, #6fa0c4 0%, #2a7ba8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.manual-half h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #1f5f86 0%, #2a7ba8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.manual-half .dress-code {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: #1f5f86;
+    margin-bottom: 1.5rem;
+}
+
+.manual-half p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #596a7d;
+    margin-bottom: 1rem;
+    max-width: 400px;
+    text-align: center;
+}
+
+.forbidden-colors {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.05) 0%, rgba(197, 160, 89, 0.1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.05);
+}
+
+.forbidden-colors strong {
+    color: #c5a059;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
+
+.manual-important-info {
+    max-width: 600px;
+    text-align: center;
+}
+
+.manual-important-info p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #1f5f86;
+    margin: 0;
 }
 
 /* ========================================
@@ -1003,7 +1117,7 @@ body {
     box-shadow: 0 0 0 4px rgba(31, 95, 134, 0.08);
 }
 
-.gift-form button {
+.gift-form button, .copy-btn {
     margin-top: 1rem;
     border: none;
     border-radius: 12px;
@@ -1017,14 +1131,15 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: 100%;
 }
 
-.gift-form button:hover:not(:disabled) {
+.gift-form button:hover:not(:disabled), .copy-btn:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(31, 95, 134, 0.4);
 }
 
-.gift-form button:disabled {
+.gift-form button:disabled, .copy-btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
 }
@@ -1087,6 +1202,26 @@ body {
         border-image: none;
         padding-left: 0;
         align-items: center;
+        text-align: center;
+    }
+
+    .manual-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .manual-half.left,
+    .manual-half.right {
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-image: none;
+    }
+
+    .manual-half.left p {
         text-align: center;
     }
 
