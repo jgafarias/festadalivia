@@ -1295,6 +1295,50 @@ body {
     font-weight: 400;
 }
 
+.app-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 2rem;
+}
+
+.app-social-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #889bad;
+    font-weight: 600;
+}
+
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+    box-shadow: 0 5px 16px rgba(214, 41, 118, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-instagram:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(214, 41, 118, 0.35);
+}
+
+.ig-icon {
+    flex-shrink: 0;
+}
+
+.ig-handle {
+    line-height: 1;
+}
+
 .album-qr-card {
     background: white;
     padding: 3rem 2.5rem;
