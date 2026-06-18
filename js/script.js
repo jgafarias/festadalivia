@@ -75,3 +75,24 @@ if (navToggle && siteNav) {
         navToggle.setAttribute('aria-expanded', String(isOpen));
     });
 }
+
+// Copy Party Code Functionality
+const copyCodeBtn = document.getElementById('copyCodeBtn');
+const partyCodeText = document.getElementById('partyCode');
+
+if (copyCodeBtn && partyCodeText) {
+    copyCodeBtn.addEventListener('click', () => {
+        const code = partyCodeText.textContent.trim();
+        navigator.clipboard.writeText(code).then(() => {
+            const originalTitle = copyCodeBtn.getAttribute('title') || 'Copiar código';
+            copyCodeBtn.innerHTML = '✔️';
+            copyCodeBtn.setAttribute('title', 'Copiado!');
+            setTimeout(() => {
+                copyCodeBtn.innerHTML = '📋';
+                copyCodeBtn.setAttribute('title', originalTitle);
+            }, 2000);
+        }).catch(err => {
+            console.error('Erro ao copiar código:', err);
+        });
+    });
+}

@@ -1174,6 +1174,233 @@ body {
 }
 
 /* ========================================
+   11.5 ÁLBUM & APLICATIVO - PREMIUM DESIGN
+   ======================================== */
+
+.album {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.album-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.album-info {
+    text-align: left;
+}
+
+.album-info .overline {
+    font-family: 'Lato', sans-serif;
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    background: linear-gradient(90deg, #6fa0c4 0%, #2a7ba8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.album-info h2 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #1f5f86 0%, #2a7ba8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+}
+
+.album-message p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #596a7d;
+    font-size: 1.05rem;
+}
+
+.app-download-box {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 40px rgba(31, 95, 134, 0.05),
+        0 0 0 1px rgba(31, 95, 134, 0.03);
+    border: 1px solid rgba(31, 95, 134, 0.05);
+}
+
+.download-title {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1f5f86;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.download-subtitle {
+    font-size: 0.95rem;
+    color: #889bad;
+    margin-bottom: 1.5rem !important;
+}
+
+.btn-download-apk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #2a9d8f 0%, #264653 100%);
+    color: white;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(38, 70, 83, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-download-apk:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(38, 70, 83, 0.35);
+}
+
+.android-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.btn-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-action-text {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-subtext {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.album-qr-card {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow:
+        0 20px 50px rgba(31, 95, 134, 0.08),
+        0 0 0 1px rgba(31, 95, 134, 0.04);
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, #d4af6a 0%, #c5a059 100%) border-box;
+}
+
+.qr-card-content h3 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #1f5f86 0%, #2a7ba8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
+}
+
+.qr-instruction {
+    color: #889bad;
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.5;
+}
+
+.album-qr-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    padding: 10px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.album-qr-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.party-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.party-code-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #889bad;
+    font-weight: 600;
+}
+
+.party-code-box {
+    display: flex;
+    align-items: center;
+    background: #fafbfc;
+    border: 2px solid #e8ecf0;
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    gap: 1rem;
+    transition: all 0.3s;
+}
+
+.party-code-box:hover {
+    border-color: #1f5f86;
+}
+
+.party-code-value {
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f5f86;
+    letter-spacing: 2px;
+}
+
+.copy-code-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-code-btn:hover {
+    background-color: rgba(31, 95, 134, 0.08);
+}
+
+/* ========================================
    12. RESPONSIVE
    ======================================== */
 
@@ -1277,5 +1504,25 @@ body {
 
     .home-text h1 {
         font-size: 3.5rem;
+    }
+
+    /* Album Responsive styles */
+    .album-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .album-info {
+        text-align: center;
+    }
+
+    .album-info h2 {
+        font-size: 2.8rem;
+    }
+
+    .btn-download-apk {
+        max-width: 320px;
+        margin: 0 auto;
     }
 }

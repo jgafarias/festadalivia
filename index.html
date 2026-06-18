@@ -49,6 +49,7 @@
                 <a href="#evento">Evento</a>
                 <a href="#manual">Manual do Convidado</a>
                 <a href="#presentes">Presentes</a>
+                <a href="#album">Álbum</a>
             </nav>
         </header>
         <main class="content">
@@ -218,6 +219,58 @@
                             <span class="gift-desc"> </span>
                             <span class="gift-action">CONTRIBUIR</span>
                         </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ALBUM SECTION -->
+            <section class="section album" id="album">
+                <div class="album-container">
+                    <div class="album-info">
+                        <span class="overline">App de Fotos</span>
+                        <h2>Nossas Memórias</h2>
+                        <div class="album-message">
+                            <p>
+                                Compartilhe seus momentos conosco! Baixe o aplicativo <strong>Our Memories</strong> e envie as fotos que você tirar durante a festa.
+                            </p>
+                            <p>
+                                Assim, todos os convidados poderão ver os momentos de cada um sob diferentes ângulos em tempo real!
+                            </p>
+                            <div class="app-download-box">
+                                <span class="download-title">Baixe para Android</span>
+                                <p class="download-subtitle">Instale o aplicativo no seu celular clicando abaixo:</p>
+                                <a href="apk/Our Memories.apk" download="Our Memories.apk" class="btn-download-apk">
+                                    <span class="android-icon">🤖</span>
+                                    <span class="btn-text-wrapper">
+                                        <span class="btn-action-text">Baixar Aplicativo</span>
+                                        <span class="btn-subtext">Our Memories.apk (77MB)</span>
+                                    </span>
+                                </a>
+                                <p class="app-beta-warning" style="margin-top: 1.2rem; font-size: 0.85rem; color: #a5803e; background: rgba(197, 160, 89, 0.08); padding: 0.8rem 1rem; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2); text-align: center; line-height: 1.4; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 500;">
+                                    <span>⚠️</span>
+                                    <span>O aplicativo está em fase de testes, podendo apresentar instabilidades ou erros.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="album-qr-card">
+                        <div class="qr-card-content">
+                            <h3>Acesse o Álbum</h3>
+                            <p class="qr-instruction">Escaneie o QR Code no app ou insira o código da festa abaixo:</p>
+                            <div class="album-qr-wrapper">
+                                <img src="img/qr-album.png" alt="QR Code do Álbum de Fotos">
+                            </div>
+                            <div class="party-code-container">
+                                <span class="party-code-label">Código da Festa:</span>
+                                <div class="party-code-box">
+                                    <span id="partyCode" class="party-code-value">DKSDM7QU</span>
+                                    <button id="copyCodeBtn" class="copy-code-btn" title="Copiar código">
+                                        📋
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
